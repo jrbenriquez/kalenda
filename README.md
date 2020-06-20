@@ -1,11 +1,17 @@
-# tookie-demo
-Django app that serves as reference in demonstrating Cookie based authentication for quick prototypes of Server Side Rendered MVP's which can also work with Token Based Authentication if needed in the future
+# Kalenda
 
-Creating MVP's with Django almost always deals with server side rendered applications which makes use of Django's built in SessionAuthentication
+TODO
 
-This app demonstrates authentication flow based on SessionAuthentication that allows the developer to do async API calls from a completely separate frontend while still being authorized as long as both are served from the same domain.
-This prepares the developer and the app for further scaling to complex frontends even if it starts with Django's own templating system
+* ~~Login with Google~~
+* ~~Get Calender Events~~
+* ~~Refresh Token Functionality for attach_google_token decorator~~
+* Improve Events view
+* Trigger day view if date is clicked on month view
+* Properly plot calendar events in day view
+* Make Calendar Events
+* Create Event Model
 
+      
 
 Serve the project
 ====

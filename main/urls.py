@@ -1,4 +1,4 @@
-"""tookie URL Configuration
+"""main URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -16,10 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from authentication.views import set_cookie
+from django.views.generic import TemplateView
+from .views import home
+
 
 urlpatterns = [
+    path('', home, name='home'),
+    path('kalenda/', include('kalenda.urls', namespace='kalenda')),
     path('admin/', admin.site.urls),
-    path('api/', include('demo.urls')),
     path('auth/', include('authentication.urls')),
+    path('accounts/', include('allauth.urls')),
     path('authorize', set_cookie, name='set-cookie')
 ]
