@@ -52,3 +52,11 @@ def set_appointment(request, calendar_id):
     # Get only events for current month
     context = {'calendar_id': calendar_id}
     return render(request, 'kalenda/appointment_calendar.html', context=context)
+
+
+@login_required
+@attach_google_token
+def set_time(request, calendar_id, datestring):
+    # Get only events for current month
+    context = {'calendar_id': calendar_id}
+    return render(request, 'kalenda/available_time.html', context=context)
