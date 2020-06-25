@@ -15,9 +15,10 @@ TODO
 
 # Setting an appointment
 
-* Choose Available Date
-* Choose from available times
-* Choose length of appointment
-* Confirm Appointment
+* ~~Choose Available Date~~
+
+* VUE - Choose from available times
+* VUE - Choose length of appointment
+* Vue - Confirm Appointment
 * Enter Details Form - (Email, Name, Contact Number)
 * Success Page - (Show event details)

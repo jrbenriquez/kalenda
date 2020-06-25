@@ -6,7 +6,7 @@ urlpatterns = [
     path('', calendars, name='calendars'),
     path('manage/<str:calendar_id>', manage_calendar, name='manage'),
     path('appointment/<str:calendar_id>', set_appointment, name='set_appointment'),
-    path('appointment/<str:calendar_id>/set-time/<str:datestring>', set_time, name='set_time')
+    path('appointment/<str:calendar_id>/set-time/', set_time, name='set_time')
 ]
 
 app_name = 'kalenda'
