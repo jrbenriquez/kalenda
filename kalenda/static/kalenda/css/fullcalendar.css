@@ -233,11 +233,11 @@ html .fc,
 .fc-state-active,
 .fc-state-disabled {
 	color: #333333;
-	background-color: #FFE3E3;
+	background-color: #D9EAF9;
 	}
 
 .fc-state-hover {
-	color: #ff3b30;
+	color: #4299e1;
 	text-decoration: none;
 	background-position: 0 -15px;
 	-webkit-transition: background-position 0.1s linear;
@@ -248,7 +248,7 @@ html .fc,
 
 .fc-state-down,
 .fc-state-active {
-	background-color: #ff3b30;
+	background-color: #4299e1;
 	background-image: none;
 	outline: 0;
 	color: #FFFFFF;
@@ -260,7 +260,7 @@ html .fc,
 	background-color: #4299e1;
 	filter: alpha(opacity=65);
 	box-shadow: none;
-	border:1px solid #FFE3E3;
+	border:1px solid #D9EAF9;
 	color: #FFF;
 	}
 
@@ -640,7 +640,8 @@ table.fc-header{
 .fc-week .fc-day > div .fc-day-number{
     font-size: 15px;
     margin: 2px;
-    min-width: 19px;
+    min-width: 2em;
+    width: 2em;
     padding: 6px;
     text-align: center;
 }

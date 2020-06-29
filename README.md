@@ -9,6 +9,9 @@ FEATURES TO ADD
 
 TODO
 
+* Presentation Video for Website Pitching
+* Donate Page
+
 * ~~Login with Google~~
 * ~~Get Calender Events~~
 * ~~Refresh Token Functionality for attach_google_token decorator~~
@@ -29,6 +32,7 @@ TODO
     * Create CalendarProfile Model
         * Color
         * google_id
+        * Slug
              
     * Create Appointment
     * Create Appointment Type
@@ -54,6 +58,9 @@ TODO
     * Summary
     * Status
     * Attendees
+    
+Pricing
+    - 100 pesos a month for custom slugs for calendar
 
 
 
