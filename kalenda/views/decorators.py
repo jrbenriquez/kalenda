@@ -6,6 +6,8 @@ from kalenda.utils.google_token import check_google_account
 
 
 def attach_google_token(func):
+    # This checks if there is a google account registered for the user and attached the token to the request.
+    # Token automatically refreshes if expired using the stored refresh token
     def _attach_google_token(request, *args, **kwargs):
         user = request.user
         social_account = user.socialaccount_set.filter(provider='google')
@@ -23,7 +25,7 @@ def attach_google_token(func):
             return redirect(reverse('home'))
         try:
             return func(request, *args, **kwargs)
-        except PermissionDenied:
+        except PermissionDenied as e:
             logout(request)
             return redirect(reverse('home'))
     return _attach_google_token

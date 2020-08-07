@@ -2,17 +2,18 @@ import requests
 
 from datetime import datetime, timezone, timedelta
 from requests_oauthlib import OAuth2Session
+from googleapiclient.discovery import build
+from google.oauth2.credentials import Credentials
 from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
+from django.conf import settings
 
 URL_BASE = 'https://oauth2.googleapis.com'
 
 
 def check_google_token(token):
     endpoint = f'/tokeninfo?id_token={token}'
-    print(token)
     url = URL_BASE + endpoint
     r = requests.get(url)
-    print(r.json())
     if r.status_code == 200:
         return True
     return False
@@ -65,3 +66,26 @@ def check_google_account(social_account):
     return social_account
 
 
+def create_google_service(user):
+    scopes = settings.SOCIALACCOUNT_PROVIDERS['google']['SCOPE']
+    refresh_token_url = GoogleOAuth2Adapter.access_token_url
+    social_account = user.socialaccount_set.filter(provider='google')
+    if not social_account:
+        return None
+    else:
+        social_account = social_account.get()
+    social_token = social_account.socialtoken_set.first()
+    social_app = social_token.app
+    # Create Google Credentials using django-all-auth saved/configured data
+    creds = Credentials(
+        token=social_token.token,
+        refresh_token=social_token.token_secret,
+        token_uri=refresh_token_url,
+        client_id=social_app.client_id,
+        client_secret=social_app.secret,
+        scopes=scopes
+    )
+    # Create the calendar service
+    service = build('calendar', 'v3', credentials=creds)
+
+    return service

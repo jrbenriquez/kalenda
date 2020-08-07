@@ -11,7 +11,6 @@ from kalenda.views.decorators import attach_google_token
 @login_required
 @attach_google_token
 def calendars(request):
-    print(request.google_token)
     data = get_google_calendars(request.google_token)
     print(data)
     calendars_data = data['items']
